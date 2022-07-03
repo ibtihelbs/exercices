@@ -13,11 +13,12 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       const bodyPartsData = await FetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercisesOptions);
 
       setBodyParts(['all', ...bodyPartsData]);
+     
     };
-
+    
     fetchExercisesData();
   }, []);
-
+  
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises', exercisesOptions);
@@ -28,9 +29,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                || item.equipment.toLowerCase().includes(search)
                || item.bodyPart.toLowerCase().includes(search),
       );
-
+   
       window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-
+     
       setSearch('');
       setExercises(searchedExercises);
     }
